@@ -1150,9 +1150,8 @@ export default function App() {
   };
 
   return (
-    <div style={{ fontFamily: 'Inter, sans-serif' }}>
-  
-      
+    <div>
+
       <div className="min-h-screen bg-gray-100">
         <Header />
         <main className="container-main">
