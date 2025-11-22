@@ -8,6 +8,8 @@ export default function MyDayPage({ foodLogs, addFoodLog, deleteFoodLog, foodsDB
   const [selectedFood, setSelectedFood] = useState('');
   const [quantity, setQuantity] = useState(100);
 
+  const openAddFoodModalFor = (meal) => { setSelectedMeal(meal); setShowAddFoodModal(true); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
+
   const logsForDate = (foodLogs || []).filter(log => log.date === selectedDate);
   const groupedLogs = {
     breakfast: logsForDate.filter(l => l.meal === 'breakfast'),
@@ -36,7 +38,7 @@ export default function MyDayPage({ foodLogs, addFoodLog, deleteFoodLog, foodsDB
           <h3 className="text-xl font-bold capitalize text-gray-800">{meal}</h3>
           <div className="flex-align-center spacing-left-3">
             <span className="text-lg font-semibold text-gray-medium">{Math.round(mealTotal)} kcal</span>
-            <button onClick={() => { setSelectedMeal(meal); setShowAddFoodModal(true); }} className="add-food-button" aria-label={`Add food to ${meal}`}><Plus size={18} /></button>
+            <button onClick={() => openAddFoodModalFor(meal)} className="add-food-button" aria-label={`Add food to ${meal}`}><Plus size={18} /></button>
           </div>
         </div>
 

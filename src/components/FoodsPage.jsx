@@ -22,8 +22,8 @@ export default function FoodsPage({ foodsDB, setFoodsDB, showStatus, getFoodName
     });
   }, [foodsDB, search, categoryFilter, getFoodName]);
 
-  const openAddModal = () => { setEditingFood(null); setFoodForm(emptyForm); setShowFoodModal(true); };
-  const openEditModal = (food) => { setEditingFood(food); setFoodForm({ ...food, name: getFoodName(food), tags: (food.tags || []).join(', ') }); setShowFoodModal(true); };
+  const openAddModal = () => { setEditingFood(null); setFoodForm(emptyForm); setShowFoodModal(true); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
+  const openEditModal = (food) => { setEditingFood(food); setFoodForm({ ...food, name: getFoodName(food), tags: (food.tags || []).join(', ') }); setShowFoodModal(true); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
 
   const handleSaveFood = () => {
     const cleaned = {
@@ -59,9 +59,9 @@ export default function FoodsPage({ foodsDB, setFoodsDB, showStatus, getFoodName
 
   // Helper component: Macro Bar visualization
   const MacroBar = ({ protein, carbs, fat, total }) => {
-    const pPct = total > 0 ? (protein / total * 100).toFixed(0) : 0;
-    const cPct = total > 0 ? (carbs / total * 100).toFixed(0) : 0;
-    const fPct = total > 0 ? (fat / total * 100).toFixed(0) : 0;
+    const pPct = total > 0 ? Math.round((protein / total) * 100) : 0;
+    const cPct = total > 0 ? Math.round((carbs / total) * 100) : 0;
+    const fPct = total > 0 ? Math.round((fat / total) * 100) : 0;
     return (
       <div style={{ display: 'flex', height: 6, borderRadius: 3, overflow: 'hidden', background: 'var(--border-light)', gap: 1 }}>
         {protein > 0 && <div style={{ flex: pPct, background: '#10B981' }} />}

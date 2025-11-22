@@ -29,6 +29,8 @@ export default function WorkoutsPage({ workoutLogs, addWorkoutLog, deleteWorkout
     }
   };
 
+  const openAddWorkout = () => { setIsAddingWorkout(true); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
+
   const WorkoutLogItem = ({ log }) => (
     <div className="log-item workout-log-item">
       <div className="flex-1">
@@ -53,7 +55,7 @@ export default function WorkoutsPage({ workoutLogs, addWorkoutLog, deleteWorkout
           <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} className="date-input" />
         </div>
 
-        <button onClick={() => setIsAddingWorkout(true)} className="add-workout-button"><Plus size={20} style={{ marginRight: '8px' }}/> Log New Exercise</button>
+        <button onClick={openAddWorkout} className="add-workout-button"><Plus size={20} style={{ marginRight: '8px' }}/> Log New Exercise</button>
 
         <div className="spacing-y-4 spacing-top-6">
           <h3 className="card-title-md border-bottom text-blue-dark spacing-bottom-3">Logged Workouts for {selectedDate}</h3>

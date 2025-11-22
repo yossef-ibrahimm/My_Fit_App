@@ -114,6 +114,9 @@ export default function HomePage({ user, dailyTotals, calorieTarget, macros, set
   const [newWeight, setNewWeight] = useState(user.weight_kg);
   const [showTutorial, setShowTutorial] = useState(false);
 
+  const openTutorial = () => { setShowTutorial(true); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
+  const openWeightModalFor = (weight) => { setNewWeight(weight); setShowWeightModal(true); if (typeof window !== 'undefined') window.scrollTo(0, 0); };
+
   useEffect(() => {
     localStorage.setItem('fitness_weightHistory', JSON.stringify(weightHistory));
   }, [weightHistory]);
@@ -172,7 +175,7 @@ export default function HomePage({ user, dailyTotals, calorieTarget, macros, set
       <div style={{ display:'flex', justifyContent:'space-between', gap:12, alignItems:'center', marginBottom:12 }}>
         <div style={{ display:'flex', gap:12, alignItems:'center' }}>
           <h2 style={{ margin:0 }}>{t.hello} {user.displayName}!</h2>
-          <button onClick={() => setShowTutorial(true)} className="log-button">{t.quickGuide}</button>
+          <button onClick={openTutorial} className="log-button">{t.quickGuide}</button>
         </div>
         <div>
           <button onClick={() => setLang(lang === 'ar' ? 'en' : 'ar')} className="cancel-button">{lang === 'ar' ? 'EN' : 'عربى'}</button>
@@ -210,7 +213,7 @@ export default function HomePage({ user, dailyTotals, calorieTarget, macros, set
               </div>
             </div>
           </div>
-          <button onClick={() => { setNewWeight(latestWeight); setShowWeightModal(true); }} className="log-button" style={{ background:'white', color:'#f5576c' }}>{t.updateWeight}</button>
+          <button onClick={() => openWeightModalFor(latestWeight)} className="log-button" style={{ background:'white', color:'#f5576c' }}>{t.updateWeight}</button>
         </div>
 
         {weightTrend.length > 1 && (
@@ -290,8 +293,8 @@ export default function HomePage({ user, dailyTotals, calorieTarget, macros, set
           <div className="grid-responsive-2" style={{ marginTop: '1rem', gap: '0.75rem' }}>
             <button onClick={() => setCurrentPage('my-day')} className="quick-action-button" style={{ backgroundColor: '#3B82F6' }}>{t.logFood}</button>
             <button onClick={() => setCurrentPage('workouts')} className="quick-action-button" style={{ backgroundColor: '#10B981' }}>{t.logWorkout}</button>
-            <button onClick={() => setCurrentPage('analytics')} className="quick-action-button" style={{ backgroundColor: '#9333EA' }}>{t.viewProgress}</button>
-            <button onClick={() => setCurrentPage('calculator')} className="quick-action-button" style={{ backgroundColor: '#F59E0B' }}>{t.recalc}</button>
+{/*             <button onClick={() => setCurrentPage('analytics')} className="quick-action-button" style={{ backgroundColor: '#9333EA' }}>{t.viewProgress}</button>
+ */}            <button onClick={() => setCurrentPage('calculator')} className="quick-action-button" style={{ backgroundColor: '#F59E0B' }}>{t.recalc}</button>
           </div>
         </div>
       </div>
