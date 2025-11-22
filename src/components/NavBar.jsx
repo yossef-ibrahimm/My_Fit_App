@@ -26,8 +26,8 @@ export default function NavBar({ currentPage, setCurrentPage }) {
     { id: 'home', label: 'Dashboard', icon: User },
     { id: 'my-day', label: 'Nutrition', icon: Calendar },
     { id: 'workouts', label: 'Workouts', icon: Dumbbell },
-    { id: 'analytics', label: 'Analytics', icon: TrendingUp },
-    { id: 'calculator', label: 'Calculator', icon: Calculator },
+/*     { id: 'analytics', label: 'Analytics', icon: TrendingUp },
+ */    { id: 'calculator', label: 'Calculator', icon: Calculator },
     { id: 'foods', label: 'Database', icon: Database },
   ];
 

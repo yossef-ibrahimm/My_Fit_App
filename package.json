@@ -9,17 +9,16 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-"deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist"
   },
   "homepage": "https://yossef-ibrahimm.github.io/My_Fit_App",
-
   "dependencies": {
     "lucide-react": "^0.554.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-select": "^5.10.2",
     "recharts": "^3.4.1"
   },
-  "homepage": "https://yossef-ibrahimm.github.io/My_Fit_App",
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/react": "^19.2.5",

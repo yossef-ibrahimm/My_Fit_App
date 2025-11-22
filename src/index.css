@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Ensure select option text is black (applies to native <select> options) */
+select option {
+	color: #000;
+}
