@@ -184,7 +184,7 @@ export default function HomePage({ user, dailyTotals, calorieTarget, macros, set
         <div className="card" style={{ background: 'linear-gradient(90deg,#FEF3C7,#DBEAFE)', padding: '16px', marginBottom: 16 }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
             <div>
-              <strong style={{ display: 'block', marginBottom: 6 }}>{lang === 'ar' ? 'مرحباً! لم تقم بحساب السعرات بعد' : 'Welcome! You haven\'t calculated targets yet'}</strong>
+              <div style={{ color:"#000  " , display: 'block', marginBottom: 6 }}>{lang === 'ar' ? 'مرحباً! لم تقم بحساب السعرات بعد' : 'Welcome! You haven\'t calculated targets yet'}</div>
               <div style={{ color: '#374151' }}>{lang === 'ar' ? 'ابدأ بالحساب ثم سجل وجباتك وبياناتك لبدء تتبع التقدم.' : 'Start by calculating your targets then log meals and your data to track progress.'}</div>
             </div>
             <div style={{ display: 'flex', gap: 8 }}>
