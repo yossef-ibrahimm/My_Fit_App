@@ -33,11 +33,16 @@ export default function CalculatorPage({ user, setUser, showStatus, calculateBMR
   const [calcResults, setCalcResults] = useState(null);
 
   const handleCalculate = () => {
+
     const bmr = calculateBMR(calc.weight_kg, calc.height_cm, calc.age, calc.gender);
     const tdee = calculateTDEE(bmr, calc.activityLevel);
     const target = calculateCalorieTarget(tdee, calc.goal);
     const macros = calculateMacros(calc.weight_kg, target, calc.settings.proteinFactor, calc.settings.fatPercentage);
     setCalcResults({ bmr, tdee, target, macros });
+    setTimeout(() => {
+          window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })
+
+    }, 100);
   };
 
   const handleApplyToProfile = () => {

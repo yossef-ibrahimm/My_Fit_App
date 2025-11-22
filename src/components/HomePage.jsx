@@ -5,7 +5,7 @@ import { ResponsiveContainer, LineChart, Line, CartesianGrid, XAxis, YAxis, Tool
 const styles = `
 .tutorial-step { display:flex; gap:12px; align-items:flex-start }
 .tutorial-step .icon { width:48px; height:48px; border-radius:10px; display:flex; align-items:center; justify-content:center; font-size:22px }
-@media (max-width:720px){ .grid-responsive-4{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:720px){ .grid-responsive-4{grid-template-columns:repeat(2,1fr)} .flexDirectionColumn {flex-direction: column;}
 `;
 
 const translations = {
@@ -185,7 +185,7 @@ export default function HomePage({ user, dailyTotals, calorieTarget, macros, set
       {/* Onboarding banner when no baseline exists */}
       {!baseline && (
         <div className="card" style={{ background: 'linear-gradient(90deg,#FEF3C7,#DBEAFE)', padding: '16px', marginBottom: 16 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+          <div className='flexDirectionColumn' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
             <div>
               <div style={{ color:"#000  " , display: 'block', marginBottom: 6 }}>{lang === 'ar' ? 'مرحباً! لم تقم بحساب السعرات بعد' : 'Welcome! You haven\'t calculated targets yet'}</div>
               <div style={{ color: '#374151' }}>{lang === 'ar' ? 'ابدأ بالحساب ثم سجل وجباتك وبياناتك لبدء تتبع التقدم.' : 'Start by calculating your targets then log meals and your data to track progress.'}</div>
@@ -199,7 +199,7 @@ export default function HomePage({ user, dailyTotals, calorieTarget, macros, set
       )}
 
       <div className="card" style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)', color: 'white', marginBottom: '2rem' }}>
-        <div className="flex-justify-between" style={{ alignItems: 'flex-start' }}>
+        <div className="flex-justify-between flexDirectionColumn" style={{ alignItems: 'flex-start' }}>
           <div>
             <h3 style={{ fontSize: '1.3rem', marginBottom: '0.5rem', fontWeight: 'bold' }}>{t.weightTracking}</h3>
             <div style={{ display: 'flex', gap: '2rem', marginTop: '1rem' }}>
