@@ -5,6 +5,7 @@
 }
 .modal-backdrop{
     height: 100vh;
+    width: 100%;
 }
 .min-h-screen{
    
@@ -937,7 +938,7 @@ body {
 }
 
 .container-main {
-  max-width: 1280px;
+  
   margin: 0 auto;
   animation: contentFade var(--anim-smooth) ease both;
 }
